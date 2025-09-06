@@ -1,0 +1,558 @@
+{
+  "name": "AI resume",
+  "nodes": [
+    {
+      "parameters": {
+        "model": "tngtech/deepseek-r1t2-chimera:free",
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -656,
+        48
+      ],
+      "id": "29695765-f644-4631-9247-e3e3ffe5c71f",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "e4YlqwiKLF3TyoeN",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "={{ $json['Company name'] }} - {{ $('Append or update row in sheet').item.json.name }}",
+        "message": "=<!DOCTYPE html>\n<html>\n  <body style=\"font-family: Arial, sans-serif; background-color: #ffffff; color: #333; padding: 20px; line-height: 1.6;\">\n    \n    <!-- Introduction -->\n    <p>Hi {{ $json['Recruiter name'] }},</p>\n\n    <p>My name is <strong>{{ $('Append or update row in sheet').item.json.name }}</strong>, and I wanted to express my interest for <strong>{{ $json.Role }}</strong> at <strong>{{ $json['Company name'] }}</strong>. To make my job search more efficient, I have built an <strong>automation tool</strong> that helps me send personalized, timely applications to companies like yours and also highlights my skills in automation testing.</p>\n\n    <p>I’d love the chance to discuss how my skills can contribute to your team!</p>\n\n    <p>Kindly find my PDF and parsed details using the same automation tool below:</p>\n\n\n<a href=\"https://drive.google.com/file/d/1LU638wr3pQAjNFqRabfafnDFrHHAq62n/view?usp=drive_link\" target=\"_blank\" style=\"padding:10px 16px; background:#2c3e50; color:white; border-radius:5px; text-decoration:none;\">⬇ Download Resume (PDF)</a>\n    <ul>\n      <li><strong>Name:</strong> {{ $('Append or update row in sheet').item.json.name }}</li>\n      <li><strong>Years of Experience:</strong> {{ $('Append or update row in sheet').item.json['years of experience'] }} years into Automation and AI</li>\n      <li><strong>LinkedIn:</strong> <a href=\"{{ $('Append or update row in sheet').item.json.linkedin }}\">{{ $('Append or update row in sheet').item.json.linkedin }}</a></li>\n      <li><strong>GitHub:</strong> <a href=\"{{ $('Append or update row in sheet').item.json.github }}\">{{ $('Append or update row in sheet').item.json.github }}</a></li>\n      <li><strong>Email:</strong> <a href=\"mailto:{{ $('Append or update row in sheet').item.json.email }}\">{{ $('Append or update row in sheet').item.json.email }}</a></li>\n      <li><strong>Phone:</strong> {{ $('Append or update row in sheet').item.json.phone }}</li>\n    </ul>\n\n\n\n    <hr style=\"margin: 30px 0; border: none; border-top: 1px solid #ccc;\">\n\n\n\n    <!-- Stylish Resume Wrapper -->\n    <div id=\"resumeWrapper\" style=\"border: 1px solid #ccc; border-radius: 8px; padding: 25px; background: #fafafa;\">\n\n      <h1 style=\"color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 5px;\">Ankush Kumar Singh</h1>\n      <p><strong>Email:</strong> <a href=\"mailto:singh.ankush1010@gmail.com\">singh.ankush1010@gmail.com</a><br>\n      <strong>Phone:</strong> +91 7385104335<br>\n      <strong>LinkedIn:</strong> <a href=\"https://www.linkedin.com/in/ankushkumar-singh\">Profile</a><br>\n      <strong>GitHub:</strong> <a href=\"https://github.com/singh-ankush\">singh-ankush</a></p>\n\n      <div style=\"margin-top: 25px;\">\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Total Experience</h2>\n        <p>2 Years into Automation and AI</p>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Professional Summary</h2>\n        <p>Automation Test Engineer with experience in web, mobile, and API automation testing. Skilled in building scalable frameworks using Selenium, Appium, Tosca, and Postman. Strong background in Agile methodologies, client communication, and delivering measurable process improvements. Adept at multiple programming languages and test methodologies.</p>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Technical Skills</h2>\n        <ul>\n          <li><strong>Languages:</strong> Java, Python, C#, JavaScript, TypeScript, SQL, HTML, CSS, JSON</li>\n          <li><strong>Frameworks/Tools:</strong> Selenium (TestNG, Cucumber, JUnit), Appium (UiAutomator2, XCUITest, Flutter-Driver), Postman, Rest Assured, Tosca, POM</li>\n          <li><strong>Platforms:</strong> Eclipse, IntelliJ, Visual Studio, PyCharm, Android Studio</li>\n          <li><strong>Version Control & Collaboration:</strong> Git, GitHub, Jira, Monday.com</li>\n          <li><strong>Soft Skills:</strong> Agile, Client Communication, Adaptability, Documentation, Leadership</li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Education</h2>\n        <ul>\n          <li><strong>MBA in IT Management</strong> – Jain University, Bangalore (Expected Dec 2025), GPA: 8.5</li>\n          <li><strong>BSc in Information Technology</strong> – University of Mumbai (Jun 2023), GPA: 8.72</li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Professional Experience</h2>\n        <h3 style=\"margin-bottom: 5px;\">Automation Test Engineer – Planit (May 2024 – Oct 2025)</h3>\n        <ul>\n          <li>Led end-to-end POCs including client communication.</li>\n          <li>Developed frameworks for web, mobile, and API testing.</li>\n          <li>Reduced manual effort by 60% through regression automation.</li>\n          <li>Improved test coverage by 40% with scalable solutions.</li>\n        </ul>\n\n        <h3 style=\"margin-bottom: 5px;\">QA Intern – Interpublic Group of Companies (Oct 2023 – Apr 2024)</h3>\n        <ul>\n          <li>Performed UI & functional testing for BMW APAC websites.</li>\n          <li>Built hybrid Selenium framework reducing execution time by 30%.</li>\n          <li>Agile collaboration using Monday.com for bug tracking.</li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Key Projects</h2>\n        <ul style=\"margin-top: 0;\">\n          <li><strong>Aertrip – Flight Booking (Planit):</strong> <span style=\"color: #555;\">Selenium + TestNG</span></li>\n          <li><strong>RBL Bank – 2-Wheeler Loan (Planit):</strong> <span style=\"color: #555;\">Selenium + Git + Batch Scripting</span></li>\n          <li><strong>BMW Korea – Build Your Drive (IPG):</strong> <span style=\"color: #555;\">Selenium + Agile</span></li>\n          <li><strong>Hospital Management System:</strong> <span style=\"color: #555;\">Java + MySQL</span></li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Certifications</h2>\n        <ul>\n          <li>Agile Project Management Professional – Atlassian (Jun 2025)</li>\n          <li>Tosca Automation Specialist Level 1 & 2 – Tricentis (Feb 2025)</li>\n          <li>Career Essentials in Project Management – Microsoft & LinkedIn (Feb 2025)</li>\n          <li>Test Automation Professional – LambdaTest (Dec 2023)</li>\n          <li>Professional Software Testing – Squad Infotech (Dec 2022)</li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Research Project</h2>\n        <p><strong>Impact of AI-driven Automation on Software Testing</strong></p>\n        <ul>\n          <li>Explored AI/ML in test frameworks for defect detection and regression optimization.</li>\n          <li>Proposed hybrid model combining Selenium with AI for 40% efficiency improvement.</li>\n          <li>Presented during MBA coursework linking academia with real QA challenges.</li>\n        </ul>\n\n        <h2 style=\"background-color: #e0e0e0; padding: 8px 12px; border-radius: 4px;\">Publication</h2>\n        <p><strong>Beyond the Search Bar</strong> – <a href=\"https://medium.com/@ankushrsingh66/beyond-the-search-bar-the-next-evolution-in-how-we-find-information-online-713b6679579a\">Read on Medium</a></p>\n        <ul>\n          <li>Explores future of search: voice, conversational AI, context-based search.</li>\n          <li>Discusses user experience and AI's role in transforming search.</li>\n        </ul>\n      </div>\n</div>\n\n\n      <br>\n      <p>Please do not hesitate to reach out to me in case of any further information or queries.</p>\n      <p>Thanks and Regards,<br><strong>Ankush Kumar Singh</strong></p>\n    \n\n  </body>\n</html>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -144
+      ],
+      "id": "9799d347-105a-4002-b065-2b0d1926c1f9",
+      "name": "Email Recruiter",
+      "webhookId": "3c273853-6b88-4364-b1e1-d3433c740d0f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9sHRL1xxgHSmguu0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "path": "/Ankush-Singh-Resume.pdf"
+      },
+      "type": "n8n-nodes-base.dropbox",
+      "typeVersion": 1,
+      "position": [
+        -656,
+        -368
+      ],
+      "id": "f0b0aa55-b5ec-4e38-8fef-5802df115d7c",
+      "name": "Download resume",
+      "credentials": {
+        "dropboxApi": {
+          "id": "Ub29IhTNnn8NU3nA",
+          "name": "Dropbox account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -832,
+        -144
+      ],
+      "id": "a448013c-6ca0-4f0b-8990-fe09207ba506",
+      "name": "Parse Resume"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g",
+          "mode": "list",
+          "cachedResultName": "Resume Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.personal_details.name }}",
+            "years of experience": "={{ $json.total_experience.years }}.{{ $json.total_experience.months }}",
+            "linkedin": "={{ $json.personal_details.linkedin }}",
+            "github": "={{ $json.personal_details.github }}",
+            "email": "={{ $json.personal_details.email }}",
+            "phone": "={{ $json.personal_details.phone }}"
+          },
+          "matchingColumns": [
+            "name"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "years of experience",
+              "displayName": "years of experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "linkedin",
+              "displayName": "linkedin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "github",
+              "displayName": "github",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -368,
+        -144
+      ],
+      "id": "e7ed1f61-e853-4353-9297-f76606666142",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hROUegDrfN23DYDh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -848,
+        -368
+      ],
+      "id": "1df42139-c6c5-480e-bd0f-90b075641985",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Define the data from \"{{ $json.text }}\" to a clean json format.\nAlso add a years of experience below name calculaing the total number of years i have worked in every company and for current company consider end date 2025-10.",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "HumanMessagePromptTemplate",
+              "message": "=[   {     \"personal_details\": {       \"name\": \"Ankush Kumar Singh\",       \"linkedin\": \"https://www.linkedin.com/in/ankushkumar-singh\",       \"github\": \"https://github.com/singh-ankush\",       \"email\": \"singh.ankush1010@gmail.com\",       \"phone\": \"+91 7385104335\"     },     \"professional_summary\": \"Automation Test Engineer with experience in web, mobile, and API automation testing. Skilled in building scalable frameworks using Selenium, Appium, Tosca, and Postman. Strong background in Agile methodologies, client communication, and delivering measurable process improvements. Adept at multiple programming languages and test methodologies.\",     \"education\": [       {         \"institution\": \"Jain University\",         \"location\": \"Bangalore, India\",         \"degree\": \"MBA\",         \"specialization\": \"Information Technology Management\",         \"gpa\": \"8.5\",         \"start_date\": null,         \"end_date\": \"2025-12\",         \"status\": \"Expected\"       },       {         \"institution\": \"University of Mumbai\",         \"location\": \"Mumbai, Maharashtra\",         \"degree\": \"Bachelor of Science\",         \"specialization\": \"Information Technology\",         \"gpa\": \"8.72\",         \"start_date\": null,         \"end_date\": \"2023-06\",         \"status\": \"Completed\"       }     ],     \"technical_skills\": {       \"languages\": [         \"Java\",         \"Python\",         \"C#\",         \"JavaScript\",         \"TypeScript\",         \"SQL\",         \"HTML\",         \"CSS\",         \"JSON\"       ],       \"frameworks_tools\": [         \"Selenium (TestNG, Cucumber, JUnit)\",         \"Appium (UiAutomator2, XCUITest, Flutter-Driver)\",         \"Postman\",         \"Rest Assured\",         \"Tosca\",         \"POM\"       ],       \"platforms\": [         \"Eclipse\",         \"IntelliJ\",         \"Visual Studio\",         \"PyCharm\",         \"Android Studio\"       ],       \"version_control_collaboration\": [         \"Git\",         \"GitHub\",         \"Jira\",         \"Monday.com\"       ],       \"soft_skills\": [         \"Agile\",         \"Client Communication\",         \"Adaptability\",         \"Documentation\",         \"Leadership\"       ]     },     \"professional_experience\": [       {         \"company\": \"Planit – An NRI Company\",         \"position\": \"Automation Test Engineer\",         \"start_date\": \"2024-05\",         \"end_date\": \"2025-10\",         \"duration\": {           \"years\": 1,           \"months\": 5         },         \"responsibilities\": [           \"Led end-to-end proof of concepts (POCs) including requirement gathering and client communication for Test Automation.\",           \"Developed frameworks using Selenium, Appium, Tosca, and Postman for web, mobile, and API testing.\",           \"Automated regression tests, reducing manual testing efforts by 60%.\",           \"Improved test coverage by 40% through scalable automation solutions.\"         ]       },       {         \"company\": \"Interpublic Group of Companies (IPG)\",         \"position\": \"QA Intern\",         \"start_date\": \"2023-10\",         \"end_date\": \"2024-04\",         \"duration\": {           \"years\": 0,           \"months\": 7         },         \"responsibilities\": [           \"Executed functional and UI testing for BMW Group Asia Pacific websites.\",           \"Built hybrid Selenium framework with TestNG, reducing execution time by 30%.\",           \"Collaborated in Agile sprints, tracked bugs with Monday.com, and resolved defects efficiently.\"         ]       }     ],     \"projects\": [       {         \"name\": \"Aertrip – Flight Booking Website\",         \"company\": \"Planit\",         \"description\": \"Designed a Selenium hybrid framework (TestNG), automated booking functionalities, and improved scalability.\",         \"technologies\": [           \"Selenium\",           \"TestNG\"         ]       },       {         \"name\": \"RBL Bank – 2-Wheeler Loan Website\",         \"company\": \"Planit\",         \"description\": \"Automated loan application flows using Selenium, Git, and batch scripting, enhancing operational efficiency.\",         \"technologies\": [           \"Selenium\",           \"Git\",           \"Batch Scripting\"         ]       },       {         \"name\": \"BMW Korea – Build Your Drive\",         \"company\": \"IPG\",         \"description\": \"Performed QA and Selenium testing for localized BMW website, ensuring timely Agile deliveries.\",         \"technologies\": [           \"Selenium\",           \"Agile\"         ]       },       {         \"name\": \"Hospital Management System\",         \"company\": \"University Project\",         \"description\": \"Built a desktop app using Java and MySQL for managing patients, doctors, and appointments.\",         \"technologies\": [           \"Java\",           \"MySQL\"         ]       }     ],     \"certifications\": [       {         \"name\": \"Agile Project Management Professional\",         \"issuing_organization\": \"Atlassian\",         \"date\": \"2025-06\"       },       {         \"name\": \"Tosca Automation Specialist Level 1 & 2\",         \"issuing_organization\": \"Tricentis\",         \"date\": \"2025-02\"       },       {         \"name\": \"Career Essentials in Project Management\",         \"issuing_organization\": \"Microsoft & LinkedIn\",         \"date\": \"2025-02\"       },       {         \"name\": \"Test Automation Professional\",         \"issuing_organization\": \"LambdaTest\",         \"date\": \"2023-12\"       },       {         \"name\": \"Professional Software Testing\",         \"issuing_organization\": \"Squad Infotech\",         \"date\": \"2022-12\"       }     ],     \"research_projects\": [       {         \"title\": \"Impact of AI-driven Automation on Software Testing and Quality Assurance in IT\",         \"key_points\": [           \"Investigated AI/ML applications in automation frameworks for defect detection, regression optimization, and quality metrics.\",           \"Proposed a hybrid automation framework combining Selenium with AI-driven models, improving efficiency by up to 40%.\",           \"Presented findings as part of MBA coursework, bridging academic theory with real-world QA industry challenges.\"         ]       }     ],     \"publications_blogs\": [       {         \"title\": \"Beyond the Search Bar: The Next Evolution in How We Find Information Online\",         \"platform\": \"Medium\",         \"key_points\": [           \"Authored a blog exploring the future of search technologies, including voice interfaces, conversational AI, and context-driven information retrieval.\",           \"Highlighted implications for user experience, personalization, and the role of AI in redefining search beyond traditional text queries.\"         ],         \"url\": \"https://medium.com/@ankushrsingh66/beyond-the-search-bar-the-next-evolution-in-how-we-find-information-online-713b6679579a\"       }     ],     \"total_experience\": {       \"years\": 2,       \"months\": 0     }   } ]\n\n\n\nuse the following format"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -656,
+        -144
+      ],
+      "id": "c600cbf7-fdf3-484a-b5dc-9fb376a628a1",
+      "name": "Get parsed resume info"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g",
+          "mode": "list",
+          "cachedResultName": "Resume Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2138401834,
+          "mode": "list",
+          "cachedResultName": "Sheet3",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fI9KkiR2cv2kgivhgKIUOOwle39l3nGP4GwXBZSO_-g/edit#gid=2138401834"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -176,
+        -144
+      ],
+      "id": "af0258d4-5af0-42b9-a99b-89b13dcf55a9",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hROUegDrfN23DYDh",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Get parsed resume info": [
+      {
+        "json": {
+          "personal_details": {
+            "name": "Ankush Kumar Singh",
+            "linkedin": "https://www.linkedin.com/in/ankushkumar-singh",
+            "github": "https://github.com/singh-ankush",
+            "email": "singh.ankush1010@gmail.com",
+            "phone": "+91 7385104335"
+          },
+          "years_of_experience": 2,
+          "professional_summary": "Automation Test Engineer with experience in web, mobile, and API automation testing. Skilled in building scalable frameworks using Selenium, Appium, Tosca, and Postman. Strong background in Agile methodologies, client communication, and delivering measurable process improvements. Adept at multiple programming languages and test methodologies.",
+          "education": [
+            {
+              "institution": "Jain University",
+              "location": "Bangalore, India",
+              "degree": "MBA",
+              "specialization": "Information Technology Management",
+              "gpa": "8.5",
+              "start_date": null,
+              "end_date": "2025-12",
+              "status": "Expected"
+            },
+            {
+              "institution": "University of Mumbai",
+              "location": "Mumbai, Maharashtra",
+              "degree": "Bachelor of Science",
+              "specialization": "Information Technology",
+              "gpa": "8.72",
+              "start_date": null,
+              "end_date": "2023-06",
+              "status": "Completed"
+            }
+          ],
+          "technical_skills": {
+            "languages": [
+              "Java",
+              "Python",
+              "C#",
+              "JavaScript",
+              "TypeScript",
+              "SQL",
+              "HTML",
+              "CSS",
+              "JSON"
+            ],
+            "frameworks_tools": [
+              "Selenium (TestNG, Cucumber, JUnit)",
+              "Appium (UiAutomator2, XCUITest, Flutter-Driver)",
+              "Postman",
+              "Rest Assured",
+              "Tosca",
+              "POM"
+            ],
+            "platforms": [
+              "Eclipse",
+              "IntelliJ",
+              "Visual Studio",
+              "PyCharm",
+              "Android Studio"
+            ],
+            "version_control_collaboration": [
+              "Git",
+              "GitHub",
+              "Jira",
+              "Monday.com"
+            ],
+            "soft_skills": [
+              "Agile",
+              "Client Communication",
+              "Adaptability",
+              "Documentation",
+              "Leadership"
+            ]
+          },
+          "professional_experience": [
+            {
+              "company": "Planit – An NRI Company",
+              "position": "Automation Test Engineer",
+              "start_date": "2024-05",
+              "end_date": "2025-10",
+              "duration": {
+                "years": 1,
+                "months": 5
+              },
+              "responsibilities": [
+                "Led end-to-end proof of concepts (POCs) including requirement gathering and client communication for Test Automation.",
+                "Developed frameworks using Selenium, Appium, Tosca, and Postman for web, mobile, and API testing.",
+                "Automated regression tests, reducing manual testing efforts by 60%.",
+                "Improved test coverage by 40% through scalable automation solutions."
+              ]
+            },
+            {
+              "company": "Interpublic Group of Companies (IPG)",
+              "position": "QA Intern",
+              "start_date": "2023-10",
+              "end_date": "2024-04",
+              "duration": {
+                "years": 0,
+                "months": 7
+              },
+              "responsibilities": [
+                "Executed functional and UI testing for BMW Group Asia Pacific websites.",
+                "Built hybrid Selenium framework with TestNG, reducing execution time by 30%.",
+                "Collaborated in Agile sprints, tracked bugs with Monday.com, and resolved defects efficiently."
+              ]
+            }
+          ],
+          "projects": [
+            {
+              "name": "Aertrip – Flight Booking Website",
+              "company": "Planit",
+              "description": "Designed a Selenium hybrid framework (TestNG), automated booking functionalities, and improved scalability.",
+              "technologies": [
+                "Selenium",
+                "TestNG"
+              ]
+            },
+            {
+              "name": "RBL Bank – 2-Wheeler Loan Website",
+              "company": "Planit",
+              "description": "Automated loan application flows using Selenium, Git, and batch scripting, enhancing operational efficiency.",
+              "technologies": [
+                "Selenium",
+                "Git",
+                "Batch Scripting"
+              ]
+            },
+            {
+              "name": "BMW Korea – Build Your Drive",
+              "company": "IPG",
+              "description": "Performed QA and Selenium testing for localized BMW website, ensuring timely Agile deliveries.",
+              "technologies": [
+                "Selenium",
+                "Agile"
+              ]
+            },
+            {
+              "name": "Hospital Management System",
+              "company": "University Project",
+              "description": "Built a desktop app using Java and MySQL for managing patients, doctors, and appointments.",
+              "technologies": [
+                "Java",
+                "MySQL"
+              ]
+            }
+          ],
+          "certifications": [
+            {
+              "name": "Agile Project Management Professional",
+              "issuing_organization": "Atlassian",
+              "date": "2025-06"
+            },
+            {
+              "name": "Tosca Automation Specialist Level 1 & 2",
+              "issuing_organization": "Tricentis",
+              "date": "2025-02"
+            },
+            {
+              "name": "Career Essentials in Project Management",
+              "issuing_organization": "Microsoft & LinkedIn",
+              "date": "2025-02"
+            },
+            {
+              "name": "Test Automation Professional",
+              "issuing_organization": "LambdaTest",
+              "date": "2023-12"
+            },
+            {
+              "name": "Professional Software Testing",
+              "issuing_organization": "Squad Infotech",
+              "date": "2022-12"
+            }
+          ],
+          "research_projects": [
+            {
+              "title": "Impact of AI-driven Automation on Software Testing and Quality Assurance in IT",
+              "key_points": [
+                "Investigated AI/ML applications in automation frameworks for defect detection, regression optimization, and quality metrics.",
+                "Proposed a hybrid automation framework combining Selenium with AI-driven models, improving efficiency by up to 40%.",
+                "Presented findings as part of MBA coursework, bridging academic theory with real-world QA industry challenges."
+              ]
+            }
+          ],
+          "publications_blogs": [
+            {
+              "title": "Beyond the Search Bar: The Next Evolution in How We Find Information Online",
+              "platform": "Medium",
+              "key_points": [
+                "Authored a blog exploring the future of search technologies, including voice interfaces, conversational AI, and context-driven information retrieval.",
+                "Highlighted implications for user experience, personalization, and the role of AI in redefining search beyond traditional text queries."
+              ],
+              "url": "https://medium.com/@ankushrsingh66/beyond-the-search-bar-the-next-evolution-in-how-we-find-information-online-713b6679579a"
+            }
+          ],
+          "total_experience": {
+            "years": 2,
+            "months": 0
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Get parsed resume info",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download resume": {
+      "main": [
+        [
+          {
+            "node": "Parse Resume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Resume": {
+      "main": [
+        [
+          {
+            "node": "Get parsed resume info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Download resume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get parsed resume info": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Email Recruiter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7d824406-400b-4ca4-b6f4-dc9c50274129",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f20f57bcd378fb8c319dead38b96968f5d8ec306356d490246e93fe52422f584"
+  },
+  "id": "KUUzzSDMMwMjyMdY",
+  "tags": []
+}
